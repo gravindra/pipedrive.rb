@@ -20,7 +20,6 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency('faraday')
   gem.add_dependency('faraday_middleware')
-  gem.add_dependency('activesupport', '>= 4.0.0')
   gem.add_dependency('hashie', '>= 3.0')
   gem.add_development_dependency('bundler', '~> 1.6')
   gem.add_development_dependency('rake')
