@@ -14,5 +14,14 @@ module Pipedrive
       return to_enum(:find_by_name, params) unless block_given?
       follow_pagination(:make_api_call, [:get, 'find'], params) { |item| yield item }
     end
+
+    def find_by_email(*args)
+      params = args.extract_options!
+      params[:term] ||= args[0]
+      fail 'term is missing' unless params[:term]
+      params[:search_by_email] ||= args[1] ? 1 : 0
+      return to_enum(:find_by_name, params) unless block_given?
+      unfollow_pagination(:make_api_call, [:get, 'find'], params) { |item| yield item }
+    end
   end
 end
